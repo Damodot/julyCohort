@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="grade">
+    <button onclick="checkGrade()">Check Grade</button>
+</body>
+
+</html>
+<script>
+    function checkGrade() {
+        if (grade.value.trim() === '') {
+            alert('All Fields are mandatory')
+        } else if (+grade.value.trim() > 100 || +grade.value.trim() < 0) {    
+            alert('Your Grade has to be between 0 and 100')
+        } else if (+grade.value.trim() >= 80) {
+            alert('Your Grade is A')
+        }  else if (+grade.value.trim() >= 70) {
+            alert('Your Grade is B')
+        }  else if (+grade.value.trim() >= 60) {
+            alert('Your Grade is C')
+        }  else if (+grade.value.trim() > 40) {
+            alert('Your Grade is E')
+        } else if (+grade.value.trim() <= 40) {
+            alert('Your Grade is F')
+        } else {
+            alert('Invalid Input')
+        }
+    }
+
+    // function signUp() {
+    //     let userName = document.getElementById('userName').value;
+    //     if (!userName) {
+    //         alert('All fields are mandatory')
+    //     } else {
+    //         alert('Sign Up successful')
+    //     }
+    // }
+    let isRaining = true;
+    if (!isRaining) {
+        console.log("You need an umbrella");
+    } else {
+        console.log("You don't need an umbrella");
+    }
+
+
+    // Weather Conditions, Rainy, Cloudy, Sunny, Windy
+    let weatherCondition = 'Rainy'
+    if (weatherCondition.trim().toLowerCase() === 'rainy') {
+        console.log('It is Rainy');
+    } else if (weatherCondition.trim().toLowerCase() === 'cloudy') {
+        console.log('It is Cloudy');
+    } else if (weatherCondition.trim().toLowerCase() === 'sunny') {
+        console.log('It is Sunny');
+    } else if (weatherCondition.trim().toLowerCase() === 'windy') {
+        console.log('It is Windy');
+    } else {
+        console.log('Invalid Input');
+    }
+
+    // Grade = 80 to 100 is A
+    // Grade = 70 to 80 is B
+    // Grade = 60 to 70 is C
+    // Grade = 50 to 60 is D
+    // Grade = 40 to 50 is E
+    // Grade = 40 below is F
+
+    // Classwork two
+    // Have a user Input, if the age is greater 18, alert the user that he/she is old enough to drive
+</script>

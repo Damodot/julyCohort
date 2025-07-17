@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // Primitive Data Types
+    // String
+    let myName = `John Doe`
+    console.log(myName[0]);
+    myName[0] = "Y"
+    console.log(myName);
+    myName = "Adelani"
+
+    // Numbers
+    let myScore = 13
+    let myAvg = 14
+    console.log(13 + 14);
+
+    // Boolean
+    let isRaining = true
+    let isDone = false
+
+    // Undefined
+    let theirScore
+    console.log(theirScore);
+
+    // Null
+    let userData = null
+
+    // Symbols
+    let mySymbol = Symbol('123')
+    let anotherSymb = Symbol('123')
+
+    // console.log(mySymbol === anotherSymb);
+
+
+    // Non Primitive
+    // Arrays
+    let arr = [1, 2, 3, 4, 5]
+    console.log(arr);
+    arr[0] = 10
+    console.log(arr);
+
+
+    // STRING METHODS
+    // Length
+    let thisClass = 'Javascript is very interesting'
+    console.log(thisClass.length);
+    let lastIndex = thisClass[thisClass.length - 1];
+    console.log(lastIndex);
+    console.log(thisClass[14]);
+
+    // Concat
+    let firstName = 'Adedeji'
+    let spaceBtw = ' '
+    let lastName = 'Adedotun'
+    let fulName = firstName.concat(spaceBtw, lastName)
+    let fullName2 = `${firstName + spaceBtw + lastName}`
+    console.log(fulName);
+    console.log(fullName2);
+
+    // Interpolation
+    let sentence = `My name is ${firstName} and my last name is ${lastName}`
+    console.log(sentence);
+
+    let a = 10
+    let b = 20
+    let ans = `The sum of ${a} and ${b} is ${a + b}`
+    console.log(ans);
+
+
+    // Includes
+    let mySentence = 'Javascript is a programming language'
+    let isIncluded = mySentence.includes('programming')
+    console.log(isIncluded);
+
+
+    // Replace
+    let newSentence = 'I love Python'
+    let changedSentence = newSentence.replace('Python', 'Javascript')
+    console.log(newSentence);
+    console.log(changedSentence);
+
+
+    // ReplaceAll
+    let anotherSentence = 'I Want to replace all Want'
+    let replaced = anotherSentence.toLowerCase().replaceAll('want', 'need')
+    console.log(replaced);
+
+    // startWith
+    let myStrings = 'Hello Guys, Javascript is Amazing, Hold on'
+    let checkedStart = myStrings.startsWith('Hllo Guys')
+    console.log(checkedStart);
+    
+    // endsWith
+    let checkedEnd = myStrings.endsWith('Hold on')
+
+    // Slice
+    let nameOfCourse = '       Javascript is amazing        nhsdhudsghs  '
+    nameOfCourse.endsWith('script')
+    let slicedOut = nameOfCourse.slice(4)
+    console.log(slicedOut);
+    
+    // Split
+    let splittedWord = nameOfCourse.split("")
+    console.log(splittedWord);
+
+    // TRIM
+    let trimmed = nameOfCourse.trim()
+    console.log(trimmed);
+    
+    
+
+
+
+</script>
