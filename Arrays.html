@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="replaceInput">
+    <button onclick="spliceName()">Splice Name</button>
+    <div class="output"></div>
+    <br><br>
+    <input type="text" class="numberInput">
+    <button onclick="addNumber()">Add Number</button>
+    <div class="reply"></div>
+</body>
+
+</html>
+<script>
+    function addNumber() {
+        let numberInput = document.querySelector('.numberInput').value.trim();
+        let reply = document.querySelector('.reply');
+        reply.innerHTML = `<h1>${eval(numberInput)}</h1>`;
+    }
+
+    let arr = []
+    let arr2 = new Array()
+    let arr3 = Array()
+    console.log(arr);
+    console.log(arr2);
+    console.log(arr3);
+    // Arr of numbers
+    let numArr = [1, 2, 3, 4, 5, 6, 7]
+    let stringArr = ['Mr Gholahan', 'Mr Stan', 'Mr Shalom', 'Mr Ezekiel']
+    let arrOfArr = [[1, 2, 3, 4], [5, 6, 7, 8, 9], [11, 12, 13, 14, 15, 16], [17, 18, 19, 20, 21]]
+    let mixedArr = [1, 'Mr Dara', true, null, undefined, {}]
+
+    let string = 'Javascript'
+    console.log(string.length);
+    console.log(string.includes('Java'));
+    console.log(string.slice(0, 4));
+
+
+    numArr[0] = 600
+    console.log(numArr);
+    console.log(arrOfArr[1][4]);
+    // Length
+    console.log(arrOfArr.length);
+    console.log(numArr.length);
+
+    // Last Index
+    console.log(numArr[numArr.length - 1]);
+    console.log(arrOfArr[arrOfArr.length - 1]);
+    let lastArrOfArr = arrOfArr[arrOfArr.length - 1]
+    console.log(lastArrOfArr);
+    console.log(lastArrOfArr[lastArrOfArr.length - 1]);
+    console.log(arrOfArr[arrOfArr.length - 1][arrOfArr[arrOfArr.length - 1].length - 1]);
+
+    // Includes
+    console.log(stringArr.includes('Mr Stan'));
+
+    // Slice
+    console.log(numArr.slice(0));
+
+    // push
+    let newNumArr = [1, 2, 3, 4, 5, 6]
+    newNumArr.push(7)
+    console.log(newNumArr);
+
+    let javaUser = []
+    console.log(javaUser);
+    javaUser.push('Mr Faruq')
+    console.log(javaUser);
+    javaUser.push('Mr Ojette')
+    console.log(javaUser);
+
+    // pop
+    let newestArr = [1, 2, 3, 4, 5]
+    console.log(newestArr);
+    let popped = newestArr.pop()
+    console.log(popped);
+    
+    console.log(newestArr);
+
+    // unshift
+    newestArr.unshift(0)
+    console.log(newestArr);
+
+    // Shift
+    let shifted = newestArr.shift()
+    console.log(shifted);
+    
+    console.log(newestArr);
+
+    // Join
+    let newNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    console.log(newNum.join('+'));
+
+    // Splice
+    let spliceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    let splicedOut = spliceArr.splice(3, 1, 400)
+    console.log(splicedOut);
+    console.log(spliceArr);
+
+    let splicedArrString = ['Mr Adedotun']
+    let displayName = document.querySelector('.output')
+    displayName.innerHTML = `<h1>${splicedArrString[0]}</h1>`
+    function spliceName() {
+        let replaceInput = document.querySelector('.replaceInput')
+        splicedArrString.splice(0, 1, replaceInput.value.trim())
+        displayName.innerHTML = `<h1>${splicedArrString[0]}</h1>`
+    }
+
+    // Sort
+    let numberArr = [1, 6, 7, 8, 4, 3, 2, 10, 11, 24, 26]
+    // numberArr.sort((a, b) => a - b)
+    // console.log(numberArr);
+
+    let stringArr2 = ['Gbolahan', "Stan", 'Shalom', 'Aisha', 'Dara', 'Ezekiel', 'Ojett', 'Faruq', 'Testimony', 'Abayomi', 'Darasimi', 'Fathia', 'Seun', 'Hammid', 'Grant', 'Salam', 'Khaleed']
+    stringArr2.sort()
+    console.log(stringArr2);
+    
+    // Reverse
+    stringArr2.reverse()
+    console.log(stringArr2);
+    
+    // numberArr.reverse()
+    numberArr.sort((a, b) => b - a)
+    console.log(numberArr);
+    
+
+
+
+</script>

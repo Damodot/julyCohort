@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="output"></div>
+
+</body>
+
+</html>
+<script>
+    let nameArr = ['Gbolahan', 'Shalom', 'Dara', 'Voice', 'Ojette', 'Salam']
+
+    let numberArr = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    let sum = 0
+    for (let index = 0; index < numberArr.length; index++) {
+        let element = numberArr[index];
+        sum += element
+    }
+    console.log(sum);
+
+    for (let index = 0; index < nameArr.length; index++) {
+        const element = nameArr[index];
+        output.innerHTML += `<h1>${element}</h1>`
+    }
+
+    for (let int = 1; int <= 12; int++) {
+        console.log(`2 * ${int} = ${2 * int}`);
+        console.log(int);
+    }
+
+    for (let int = 0; int < 5; int++) {
+        console.log(int);
+    }
+
+    // #
+    // ##
+    // ###
+    // ####
+    // #####    
+    // ######
+
+    let tagSum = ''
+    for (let i = 0; i < 7; i++) {
+        tagSum += '#'
+        console.log(tagSum);
+    }
+
+    // For Of Loop
+    let multiArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    for (const element of multiArr) {
+        console.log(`2 * ${element} = ${2 * element}`);
+    }
+
+    // Break, Continue
+    let javaUsers = ['Gbolahan', 'Shalom', 'Dara', 'Voice', 'Ojette', 'Salam']
+    let reactUsers = ['Seun', 'Testimony', 'Habeeb', 'Grant']
+    let checker = 'htmlUsers'
+    for (let index = 0; index < javaUsers.length; index++) {
+        if (checker === 'javaUsers') {
+            const element = javaUsers[index];
+            console.log(element);
+        } else if (checker === 'reactUsers') {
+            if (index === reactUsers.length) {
+                break
+            }
+            const element = reactUsers[index];
+            console.log(element);
+        } else {
+            console.log('Invalid Input');
+            break
+        }
+    }
+
+    for (let index = 0; index < 5; index++) {
+        if (index === 3) {
+            break
+        }
+        console.log(index);
+    }
+
+    // Continue
+    for (let ind = 0; ind < 6; ind++) {
+        if (ind === 3) {
+            continue
+        }
+        console.log(ind);
+    }
+
+</script>

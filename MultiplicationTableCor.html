@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="changeTheme()">Change Theme</button>
+    <div id="Name">
+        <input type="number" id="inputTab">
+        <input type="number" id="multiTab">
+        <button onclick="multiply()">Generate</button>
+        <div id="Answer"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    let body = document.body
+    console.log(body.style.backgroundColor);
+    
+    function changeTheme() {
+        if (!body.style.backgroundColor) {
+            body.style.backgroundColor = 'black'
+            body.style.color = 'white'
+        } else {
+            body.style.backgroundColor = ''
+            body.style.color = 'black'
+        }
+    }
+    let displayTab = document.getElementById('Answer')
+
+
+    function multiply() {
+        let startsFrom = document.getElementById('inputTab').value.trim()
+        let endsAt = document.getElementById('multiTab').value.trim()
+        console.log(startsFrom);
+        console.log(endsAt);
+        if (!startsFrom || !endsAt) {
+            alert('All field are mandatory')
+
+        } else {
+            if (+startsFrom > +endsAt) {        
+                for (let index = +startsFrom; index >= +endsAt; index--) {
+                    displayTab.innerHTML += `Multiplication table for ${index}`
+                    for (let i = 1; i <= 12; i++) {
+                        displayTab.innerHTML += `<p>${index}* ${i} = ${index * i}</p>`;
+                    }
+                }
+            }
+            else {
+                for (let index = +startsFrom; index <= +endsAt; index++) {
+                    displayTab.innerHTML += `Multiplication table for ${index}`
+                    for (let i = 1; i <= 12; i++) {
+                        displayTab.innerHTML += (`<p>${index}* ${i} = ${index * i}</p>`);
+                    }
+                }
+            }
+
+        }
+    }
+
+</script>
