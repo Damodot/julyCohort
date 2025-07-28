@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="m-auto rounded shadow p-4 w-50">
+        <h1 class="text-center fw-bolder">Todo List</h1>
+        <input type="text" class="form-control my-4" placeholder="Add a new task" id="taskInput">
+        <button class="btn btn-success" onclick="addTask()">Add Task</button>
+        <div class="taskList"></div>
+
+    </main>
+</body>
+
+</html>
+<script>
+    let todoDatabase = []
+    
+    function displayTodo() {
+        let taskList = document.querySelector('.taskList')
+        taskList.innerHTML = ''
+        for (let i = 0; i < todoDatabase.length; i++) {
+            taskList.innerHTML += `
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <h1>${i + 1}</h1>
+                    <h1>${todoDatabase[i]}</h1>
+                    <div class="d-flex gap-2">
+                        <button class='btn btn-success' onclick='editer(${i})'>Edit</button>
+                        <button class='btn btn-danger' onclick='deleter(${i})'>Delete</button>
+                    </div>
+                </div>
+        `
+        }
+    }
+
+    function addTask() {
+        let taskInput = document.getElementById('taskInput')
+        if (!taskInput.value.trim()) {
+            alert('Please enter a task')
+        } else {
+            todoDatabase.push(taskInput.value.trim())
+            console.log(todoDatabase);
+            taskInput.value = ''
+            displayTodo()
+        }
+
+    }
+
+    function deleter(index) {
+        console.log(index);
+        todoDatabase.splice(index, 1)
+        console.log(todoDatabase);
+        displayTodo()
+    }
+
+    function editer(index) {
+        let todoPrompt = prompt('What do you want to edit your task to be?', todoDatabase[index])
+        if (!todoPrompt || todoPrompt === todoDatabase[index]) {
+            alert('Please make sure you edited your message in the right format')
+        } else {
+            todoDatabase[index] = todoPrompt
+            displayTodo()
+        }
+    }
+</script>
