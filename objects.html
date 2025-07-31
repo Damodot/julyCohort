@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        table,
+        thead,
+        tr,
+        tbody,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 0.5px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="rounded shadow w-50 p-5 m-auto">
+        <h1 class="text-center fw-bolder">Sign Up</h1>
+        <input type="text" placeholder="Enter First Name" class="firstName form-control mt-4">
+        <input type="text" placeholder="Enter Last Name" class="lastName form-control mt-4">
+        <input type="password" placeholder="Enter Password" class="password form-control mt-4">
+        <input type="password" placeholder="Confirm Password" class="confPassword form-control mt-4">
+        <button onclick="signUp()" class="btn btn-success mt-4">Sign Up</button>
+        <div class="w-100 mt-4">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Full Name</th>
+                        <th>Password</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
+<script>
+    let userDatabase = []
+    function signUp() {
+        let firstName = document.querySelector('.firstName')
+        let lastName = document.querySelector('.lastName')
+        let password = document.querySelector('.password')
+        let confPassword = document.querySelector('.confPassword')
+        let tableBody = document.querySelector('.tbody')
+
+        if (!firstName.value.trim() || !lastName.value.trim() || !password.value.trim() || !confPassword.value.trim()) {
+            alert('All fields are mandatory')
+            return
+        }
+
+        if (password.value.trim() !== confPassword.value.trim()) {
+            alert('Passwords must be the same')
+            return
+        }
+
+        if (password.value.trim().length <= 8) {
+            alert('Password must be more than 8 characters')
+            return
+        }
+
+        let userObj = {
+            userFirstName: firstName.value.trim(),
+            userLastName: lastName.value.trim(),
+            userPassword: password.value.trim(),
+            getPersonFullName: function () {
+                return `${this.userFirstName} ${this.userLastName}`
+            }
+        }
+
+        userDatabase.push(userObj)
+        console.log(userDatabase);
+
+        tableBody.innerHTML = ''
+        for (let i = 0; i < userDatabase.length; i++) {
+            const element = userDatabase[i];
+            tableBody.innerHTML += `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${element.getPersonFullName()}</td>
+                <td>${element.userPassword}</td>
+                <td class='d-flex justify-content-center align-items-center gap-2'>
+                    <button class="btn btn-success">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            `
+        }
+
+
+        firstName.value = ''
+        lastName.value = ''
+        password.value = ''
+        confPassword.value = ''
+
+    }
+
+    let userObj = {
+        name: 'Mr Gbolahan',
+        gender: 'Male',
+        skills: ['Html', 'Css', 'Bootstrap', 'Javascript'],
+        otherInfo: [
+            {
+                isMarried: false,
+                isSmart: true,
+                classmates: {
+                    classmatesInfo: ['Shalom', 'Dara', 'Testimony', 'Voice', 'Victor']
+                }
+            }
+        ],
+        getPersonFullname: function () {
+            return `${this.name} is a website dedveloper and his skills are ${this.skills.join(', ')}`
+        }
+    }
+
+    console.log(userObj.otherInfo[0].classmates.classmatesInfo[4]);
+    console.log(userObj.getPersonFullname());
+
+
+    userObj.name = 'Gbolahan Money'
+    userObj.DOB = 'Ancient Man'
+    userObj.skills.push('React')
+    userObj.otherInfo[0].classmates.classmatesInfo.push('Ojette', 'Abayomi', 'Khalid', 'Salam', 'Fathia', 'Stan', 'Seun')
+
+    console.log(userObj['name']);
+
+
+    console.log(userObj);
+
+
+    // let myArr = [1, 2, 3, 4, 5, 6, 7]
+    // myArr[0] = 50
+    // console.log(myArr);
+
+
+    console.log(userObj.name);
+    console.log(userObj.gender);
+    console.log(userObj.skills[2]);
+
+    function sayname() {
+        let a = 4
+        let b = 10
+        console.log(a + b);
+    }
+
+    sayname()
+
+
+    function sayMyName() {
+        let firstName = 'Adedotun'
+        let secName = 'Adedeji'
+        return `${firstName} ${secName}`
+    }
+
+    console.log(sayMyName() + ' is a website developer');
+
+
+    // Object Methods
+    // Object Assign
+
+    let copyUser = Object.assign({}, userObj)
+    console.log(copyUser);
+
+    // Object Keys
+    console.log(Object.keys(userObj));
+
+    // Object Values
+    console.log(Object.values(userObj));
+
+    // Object Entries
+    console.log(Object.entries(userObj));
+
+    // Object Has Own Property
+    console.log(userObj.hasOwnProperty('username'));
+
+
+
+
+
+
+
+
+</script>

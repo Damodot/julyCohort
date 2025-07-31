@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="num1">
+    <button onclick="performOperation('+')">Add</button>
+    <button onclick="performOperation('-')">Subtract</button>
+    <button onclick="performOperation('*')">Multiply</button>
+    <button onclick="performOperation('/')">Divide</button>
+    <button onclick="performOperation('**')">Power2</button>
+    <button onclick="equalsTo()">Equals</button>
+</body>
+
+</html>
+
+<script>
+    let mainInput = document.getElementById('num1')
+    let calcArr = []
+    function performOperation(params) {
+        calcArr.push(mainInput.value.trim(), params)
+        mainInput.value = ''
+    }
+
+    function equalsTo() {
+        calcArr.push(mainInput.value.trim())
+        mainInput.value = (eval(calcArr.join('')))
+        calcArr = []
+    }
+</script>

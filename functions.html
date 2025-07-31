@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #boxDiv {
+            width: 300px;
+            aspect-ratio: 1/1;
+            background-color: red;
+        }
+    </style>
 </head>
 
 <body>
-
+    <button onclick="sayClassName()">Click Me</button>
+    <h1 id="showClassName"></h1>
+    <button id="classBtn">Say Next Class</button>
+    <div id="boxDiv"></div>
+    <button onclick="namer()">Say Name Again</button>
 </body>
 
 </html>
@@ -16,26 +27,156 @@
 <script>
     // Global Scope, Function Scope, Local Scope
 
+    let myStrings = 'JS'
+    myStrings.slice(0, 2)
+    myStrings.includes('JS')
+
+
     let thisClass = 'Javascript'
     var newClass = 'React'
 
-    function name() {
+    function namer() {
         console.log(thisClass);
         let anotherName = 'MongoDb'
         var newClass = 'Any Name'
 
+        function sayName() {
+            console.log(anotherName);
+            console.log(newClass);
+        }
+        sayName();
     }
-    name()
+    // name();
 
-    // console.log(anotherName);
+    // Function declaration
+    function sayClassName() {
+        console.log('This is a Javascript class');
+        showClassName.innerHTML += 'This is a Javascript class';
+    };
+
+    // Function expression
+    let sayNextClass = function () {
+        console.log('This is a React class');
+        showClassName.innerHTML += 'This is a React class';
+    }
+
+    sayNextClass();
+
+    let classBtn = document.getElementById('classBtn')
+    classBtn.onclick = function () {
+        boxDiv.style.backgroundColor = 'blue';
+    };
+
+    classBtn.onmouseover = function () {
+        boxDiv.style.backgroundColor = 'green';
+    };
+
+    // Anonymous Function
+    // function () {
+
+    // }
+
+    // SIFE or IIFE
+    (function () {
+        console.log('I am a self invoked function expression');
+    })();
+
+
+    // Arrow Function
+    let arrowFunction = () => {
+        console.log('This is an arrow function');
+    }
+
+    arrowFunction()
+
+    // Functions with one parameter 
+    function funcWithParams(expectingParameter) {
+        console.log(`This class is ${expectingParameter} class`);
+    }
+
+    funcWithParams('Javascript')
+    funcWithParams('Python')
+    funcWithParams('React')
+
+    function addNumber(params) {
+        let a = 10
+        console.log(a + params);
+    }
+
+    addNumber(19)
+
+    let firstArr = ['Gbolahan', 'Stan', 'Shalom', 'Ojette', 'Testimony', 'Salam', 'Seun', 'Faruq']
+    let secondArr = ['Voice', 'Dara', 'Aisha', 'Mohammed', 'Khalid', 'Darasimi', 'Fathia']
+
+    let loopArr = (params) => {
+        for (const element of params) {
+            console.log(element);
+        }
+    }
+
+    loopArr(secondArr)
+
+
+    // Function with two parameters
+    function addNum(a, b, c) {
+        console.log(a + b + c);
+    }
+
+    addNum(2, 6, 7)
+
+    // functions with default parameters 
+    function sumNum(a, b = 5) {
+        console.log(a + b);
+    }
+
+    sumNum(3, 9)
+
+    // functions with unlimited arguments
+    function sumNumbers() {
+        console.log(arguments);
+        // let newArr = []
+        // for (let i = 0; i < arguments.length; i++) {
+        //     const element = arguments[i];
+        //     newArr.push(element)
+        // }
+        // console.log(eval(newArr.join('+')));
+
+        let anotherArr = Array.from(arguments)
+        console.log(eval(anotherArr.join('+')));
+
+    }
+
+    sumNumbers(1, 2, 3, 5, 5, 4, 2, 3, 5, 6, 9)
+
+
+    // Callback Functions
+    function orderFood(callback) {
+        callback()
+    }
+
+    // function callNumber() {
+    //     console.log('Calling Mr Faruq');
+    // }
+
+    orderFood(() => {
+        console.log('Calling Mr Faruq');
+    })
+
+
+    let username = 'gsgke'
+    let password = 'mndhbjsd'
+    // Function Returning  A Valuessss
+    function sayName() {
+        if (!username || !password) {
+            alert('Fields are required')
+            return
+        }
+        alert('User Signed in Successfully')
+        
+    }
+
+    console.log(sayName());
     
 
-    for (let index = 0; index < 1; index++) {
-        // const element = array[index];
-        var anotherName = 'Node'
-    }
-
-    console.log(anotherName);
-    
 
 </script>

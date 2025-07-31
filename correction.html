@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="password" id="passwordInput">
+    <button onclick="showPassword()">Show</button>
+</body>
+
+</html>
+
+<script>
+    function showPassword() {
+        let passwordInput = document.getElementById('passwordInput')
+        // if (passwordInput.type === 'password') {
+        //     passwordInput.type = 'text'
+        // } else {
+        //     passwordInput.type = 'password'
+        // }
+        passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password'
+    }
+
+    function genRGBCol() {
+        function giveRandNum() {
+            return Math.floor(Math.random() * 256)
+        }
+        let color = `rgb(${giveRandNum()}, ${giveRandNum()}, ${giveRandNum()})`
+        console.log(color);
+    }
+
+    genRGBCol()
+
+</script>
